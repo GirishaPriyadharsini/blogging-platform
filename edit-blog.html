@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Platform - Edit Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">BlogSpace</a>
+            <div class="nav-links">
+                <!-- Navigation will be updated by JavaScript -->
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="form-container">
+            <h2 class="text-center">Edit Blog</h2>
+            <form id="blogForm">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea id="content" name="content" rows="10" required></textarea>
+                </div>
+                
+                <div id="currentImageContainer" class="form-group">
+                    <!-- Current image will be loaded here -->
+                </div>
+                
+                <div class="form-group">
+                    <label for="image">New Featured Image (optional)</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                    <small>Leave empty to keep current image</small>
+                </div>
+                
+                <button type="button" onclick="handleUpdateBlog()" class="btn btn-primary btn-block">Update Blog</button>
+                <a href="/dashboard.html" class="btn btn-secondary btn-block">Cancel</a>
+            </form>
+        </div>
+    </main>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

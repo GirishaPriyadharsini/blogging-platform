@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Platform - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">BlogSpace</a>
+            <div class="nav-links">
+                <!-- Navigation will be updated by JavaScript -->
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="form-container">
+            <h2 class="text-center">Login</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <p class="text-center mt-2">
+                Don't have an account? <a href="/register.html">Register here</a>
+            </p>
+        </div>
+    </main>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
