@@ -39,7 +39,12 @@ const upload = multer({
     storage: storage,
     limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
 });
-
+console.log("ENV CHECK:", {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    database: process.env.DB_NAME
+});
 // Database connection pool (Railway MySQL)
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
