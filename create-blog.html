@@ -32,59 +32,10 @@
                     <label for="image">Featured Image (optional)</label>
                     <input type="file" id="image" name="image" accept="image/*">
                 </div>
-                <button type="button" class="btn btn-primary btn-block" onclick="handleCreateBlog()">Create Blog</button>
+               <button type="submit">Create Blog</button>
             </form>
         </div>
     </main>
-    
-    <script>
-        // Check if user is logged in
-        const token = localStorage.getItem('token');
-        
-        if (!token) {
-            window.location.href = 'login.html';
-        }
-
-        async function handleCreateBlog() {
-            const title = document.getElementById('title').value;
-            const content = document.getElementById('content').value;
-            const imageInput = document.getElementById('image');
-            
-            if (!title || !content) {
-                alert('Please fill in all required fields');
-                return;
-            }
-            
-            const formData = new FormData();
-            formData.append('title', title);
-            formData.append('content', content);
-            
-            if (imageInput.files[0]) {
-                formData.append('image', imageInput.files[0]);
-            }
-            
-            try {
-                const response = await fetch('/api/blogs', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: formData
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    alert('Blog created successfully!');
-                    window.location.href = '/';
-                } else {
-                    alert('Error: ' + data.error);
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Failed to create blog. Please try again.');
-            }
-        }
-    </script>
+<script src="js/script.js"></script>
 </body>
 </html>

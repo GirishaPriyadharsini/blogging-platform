@@ -570,9 +570,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     const createBlogForm = document.getElementById('blogForm');
-    if (createBlogForm && window.location.pathname.includes('create-blog.html')) {
-        createBlogForm.addEventListener('submit', handleCreateBlog);
-    }
+    if (createBlogForm) {
+    createBlogForm.addEventListener('submit', handleCreateBlog);
+}
 });
 
 // Form handlers

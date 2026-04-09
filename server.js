@@ -184,7 +184,9 @@ app.post('/api/blogs', authenticateToken, upload.single('image'), async (req, re
             return res.status(401).json({ error: 'User not authenticated' });
         }
         
-        const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
+        const imageUrl = req.file 
+  ? `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}` 
+  : null;
         
         const [result] = await pool.execute(
             'INSERT INTO blogs (title, content, image_url, user_id) VALUES (?, ?, ?, ?)',
