@@ -322,19 +322,19 @@ app.put('/api/blogs/:id', authenticateToken, upload.single('image'), async (req,
         if (req.file) {
             // Delete old image if exists
             if (blogs[0].image_url) {
-                const oldImagePath = path.join(__dirname, blogs[0].image_url);
+                const oldImagePath = path.join(__dirname, blogs[0].image_url.replace(`${req.protocol}://${req.get('host')}`, ''));
                 if (fs.existsSync(oldImagePath)) {
                     fs.unlinkSync(oldImagePath);
                 }
             }
-            imageUrl = `/uploads/${req.file.filename}`;
+            imageUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
         }
         // If removeImage flag is set (sent as string 'true')
         else if (req.body.removeImage === 'true') {
             console.log('Removing existing image');
             // Delete old image if exists
             if (blogs[0].image_url) {
-                const oldImagePath = path.join(__dirname, blogs[0].image_url);
+                const oldImagePath = path.join(__dirname, blogs[0].image_url.replace(`${req.protocol}://${req.get('host')}`, ''));
                 if (fs.existsSync(oldImagePath)) {
                     fs.unlinkSync(oldImagePath);
                 }
